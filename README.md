@@ -16,13 +16,13 @@ NeoRunner provides a `Makefile` for easy installation.
 1. Clone the repository
 
 ```
-$ git clone https://github.com/awesomearc/neorunner.git
+$ git clone https://github.com/AwesomeARC/NeoRunner.git
 ```
 
 2. Navigate into the directory
 
 ```
-$ cd neorunner
+$ cd NeoRunner
 ```
 
 3. Use `make` to install the script
