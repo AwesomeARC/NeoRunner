@@ -1,0 +1,15 @@
+{
+    "c": "g++ $file_name -o $file_name_without_ext && ./$file_name_without_ext",
+    "cpp": "g++ $file_name -o $file_name_without_ext && ./$file_name_without_ext",
+    "rs": "rustc $file_name && ./$file_name_without_ext",
+    "java": "javac $file_name && java $file_name_without_ext",
+    "py": "python3 -u $file_name",
+    "js": "node $file_name",
+    "ts": "ts-node $file_name",
+    "rb": "ruby $file_name",
+    "pl": "perl $file_name",
+    "hs": "runhaskell $file_name",
+    "php": "php $file_name",
+    "sc": "scala $file_name",
+    "sh": "bash $file_name"
+}
