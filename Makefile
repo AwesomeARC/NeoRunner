@@ -13,8 +13,11 @@ install:
 	@cp -p config/executor_map_by_ext.json $(DESTDIR)$(SYSCONFDIR)/nr
 	@cp -p nr.1 $(DESTDIR)$(MANDIR)/man1
 	@chmod 755 $(DESTDIR)$(PREFIX)/bin/nr
+	@echo NeoRunner has been successfully installed.
 
 uninstall:
 	@rm -rf $(DESTDIR)$(PREFIX)/bin/nr
 	@rm -rf $(DESTDIR)$(SYSCONFDIR)/nr
 	@rm -rf $(DESTDIR)$(MANDIR)/man1/nr.1*
+	@echo NeoRunner has been successfully uninstalled.
+
