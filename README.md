@@ -3,9 +3,9 @@
 
 # Introduction
 
-NeoRunner is a simple, small and portable code runner script. Many text editors today come with built-in code runners and some others have plugins and extensions that can be downloaded to enable this functionality. Being able to define custom snippets to run code written in different languages, and having a simple interface to execute such snippets is a rather menial task. However, there is no such "simple code runner script" which enables a user to do this right from the command line.
+NeoRunner is a simple, small and portable code runner script. Many text editors today come with built-in code runners and some others have plugins and extensions that can be downloaded and installed to enable this functionality. Being able to define custom snippets to compile/run code written in different languages, and having a simple interface to execute such snippets is a rather menial task. However, there seemed to be a striking lack of such a "simple code runner script" to enable a user to do this right from the command line.
 
-This project aims to fill that void. It provides a simple and logical command line interface to code written in virtually any possible language, as per an executor map located, by default, at the script's config directory.
+This project aims to fill that void. It provides a simple and logical command line interface to compile/run code written in virtually any possible language, as per an executor map located, by default, at the script's config directory.
 
 Currently, it only supports file extension-based executor maps. However, there are plans to add glob-based executor maps soon.
 
@@ -55,5 +55,5 @@ A sample executor map has been provided at [config/executor\_map\_by\_ext.json](
 }
 ```
 
-This file should be installed automatically if the script was installed through `make`. Users may choose to modify this file however they wish.
+This file should be installed to the system-wide config directory automatically if the script was installed through `make`. Users may choose to modify this file however they wish.
 
