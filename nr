@@ -42,11 +42,11 @@ if [[ ! -x $(command -v jq) ]]; then
 fi
 
 # Variables
-executor_map_path="$HOME/.config/nr/executor_map_by_ext.json"
 executor_map_fallback_path="/usr/local/etc/nr/executor_map_by_ext.json"
+executor_map_path="$HOME/.config/nr/executor_map_by_ext.json"
 file_path=
 file_name=
-file_ext=
+file_type=
 file_name_without_ext=
 dir_name=
 
@@ -196,26 +196,31 @@ function check_executor_map_path() {
 # Runs the code
 function run_code() {
 
-    file_name="$(basename $file_path)"
-    dir_name="$(dirname $file_path)"
+    file_name="$(basename "$file_path")"
+    dir_name="$(dirname "$file_path")"
 
-    if [[ "$file_name" != *.* ]] && [[ -z file_ext ]]; then
+    if [[ "$file_name" != *.* ]] && [[ -z "$file_type" ]]; then
         
         printf "Warning: No file extension specified. Running as a shell script." 1>&2
 
-        file_ext="sh"
+        file_type="sh"
 
     else
 
-        file_ext="${file_name##*.}"
+        if [[ -z "$file_type"  ]]; then
+
+            file_type="${file_name##*.}"
+
+        fi
+
         file_name_without_ext="${file_name%.*}"
 
     fi
 
-    if [[ $(jq -r "has(\"$file_ext\")" "$executor_map_path") == "true" ]]; then
+    if [[ $(jq -r "has(\"$file_type\")" "$executor_map_path") == "true" ]]; then
 
-        executor="$(jq -r .$file_ext $executor_map_path)"
-        eval "cd $dir_name; $executor"
+        executor="$(jq -r ."$file_type" "$executor_map_path")"
+        eval "cd \"$dir_name\"; $executor"
 
     else
 
