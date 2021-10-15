@@ -196,8 +196,8 @@ function check_executor_map_path() {
 # Runs the code
 function run_code() {
 
-    file_name="$(basename $file_path)"
-    dir_name="$(dirname $file_path)"
+    file_name="$(basename "$file_path")"
+    dir_name="$(dirname "$file_path")"
 
     if [[ "$file_name" != *.* ]] && [[ -z "$file_type" ]]; then
         
@@ -219,7 +219,7 @@ function run_code() {
 
     if [[ $(jq -r "has(\"$file_type\")" "$executor_map_path") == "true" ]]; then
 
-        executor="$(jq -r .$file_type $executor_map_path)"
+        executor="$(jq -r ."$file_type" "$executor_map_path")"
         eval "cd $dir_name; $executor"
 
     else
